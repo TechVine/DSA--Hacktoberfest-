@@ -1,0 +1,54 @@
+class Solu
+{
+    void swap(int arr[], int l, int m)
+    {
+        int tmp = arr[l];
+        arr[l] = arr[m];
+        arr[m] = tmp;
+    }
+    
+    int randomPartition(int arr[], int l, int m)
+    {
+        int n = m-l+1;
+        Random rd = new Random();
+        int pivot = rd.nextInt(n);
+        swap(arr, l + pivot, m);
+        return partition(arr, l, m);
+    }
+    
+    int kthSmallest(int arr[], int l, int m, int k)
+    {
+        // If k is smaller than number of elements in array
+        if (k > 0 && k <= m - l + 1)
+        {
+            // find a position for random partition
+            int pos = randomPartition(arr, l, m);
+            
+            // if this pos gives the kth smallest element, then return
+            if (pos-l == k-1)
+                return arr[pos];
+                
+            // else recurse for the left and right half accordingly
+            if (pos-l > k-1)  
+                return kthSmallest(arr, l, pos-1, k);
+            return kthSmallest(arr, pos+1, m, k-pos+l-1);
+        }
+    
+        return Integer.MAX_VALUE;
+    }
+    
+    int partition(int arr[], int l, int m)
+    {
+        int x = arr[m], i = l;
+        for (int j = l; j <= m - 1; j++)
+        {
+            if (arr[j] <= x)
+            {
+                swap(arr, i, j);
+                i++;
+            }
+        }
+        swap(arr, i, m);
+        return i;
+    }
+}
