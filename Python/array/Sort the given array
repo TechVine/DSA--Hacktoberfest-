@@ -1,7 +1,0 @@
-# List of Integers
-numbers = [40, 30, 50, 20]
-
-# Sorting list of Integers
-numbers.sort()
-
-print(numbers)
