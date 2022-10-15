@@ -1,0 +1,11 @@
+class Solution {
+    public int getDecimalValue(ListNode head) {
+        int sum = head.val;
+        ListNode temp = head.next;
+        while(temp != null){
+            sum = (sum)*2 + temp.val;
+            // System.out.println(sum);
+            temp = temp.next;
+        }
+    return sum;}
+}
