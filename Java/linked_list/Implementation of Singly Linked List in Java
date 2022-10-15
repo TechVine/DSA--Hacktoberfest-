@@ -1,0 +1,162 @@
+import java.time.chrono.MinguoDate;
+
+public class LinkedList <T>{
+
+    Node head;
+    Node tail;
+
+    int size ;
+    public LinkedList(){
+        this.size=0;
+    }
+    // Add element at the first index of Linked List
+    public void addFirst(T value){
+        Node node = new Node(value);
+
+        node.next= head;
+        head=node;
+
+        if(tail==null){
+            tail = head;
+        }
+        size++;
+    }
+    // Add node at particular index
+    public void atParticularIndex(T value,int index){
+        if(index==0){
+            addFirst(value);
+            return;
+        } else if (index==size-1) {
+            addFirst(value);
+            return;
+        }else if(index>size || index<0 ){
+            System.out.println("Invalid Index");
+        }
+        Node temp = head;
+        for (int i = 1; i < index; i++) {
+            temp = temp.next;
+        }
+        Node node = new Node(value,temp.next);
+        temp.next = node;
+        size++;
+
+    }
+
+    // Add node at last index
+    public void addLast(T value){
+        // If tail==null means there is no Node present initially
+        if(tail==null){
+            addFirst(value);
+            return;
+        }
+        Node node = new Node(value);
+        tail.next=node;
+        tail = node;
+        size++;
+    }
+
+    // Display Linked List
+    public void display(){
+        Node temp = head;
+
+        while(temp!=null){
+            System.out.print(temp.value+"-->");
+            temp = temp.next;
+        }
+        System.out.println("End");
+    }
+
+    // Delete Node from first Index
+    public T deleteFirst(){
+        T value = head.value;
+        head= head.next;
+        if(head==null){
+            tail=null;
+        }
+        size--;
+        return value;
+    }
+
+    // Delete node from last index
+    public T deleteLast(){
+        if(size<=1){
+           return deleteFirst();
+        }
+        Node secondLast = get(size-2);
+        T value = tail.value;
+        tail = secondLast;
+        tail.next = null;
+        return value;
+    }
+
+    // Delete from particular index
+    public T deleteIndex(int index){
+        if(index==0){
+            return deleteFirst();
+        }
+        if(index==size-1){
+            return deleteLast();
+        }
+
+        Node prev = get(index-1);
+        T value = prev.next.value;
+        prev.next = prev.next.next;
+        size --;
+        return  value;
+    }
+
+    // Get node at particular index
+    public Node get(int index){
+        Node node = head;
+        for(int i=0;i<index;i++){
+            node = node.next;
+
+        }
+        return node;
+    }
+
+    // Find node of given value
+    public Node find(T value){
+        Node temp = head;
+        while(temp !=null){
+            if(temp.value==value){
+                return temp;
+            }
+            temp = temp.next;
+        }
+        return null;
+    }
+
+    // Reverse a Linked List
+    public void reverse(){
+        if(size<2){
+            return;
+        }
+        Node prev =null;
+        Node present =head;
+        Node next = present.next;
+
+        while (present!=null){
+            present.next=prev;
+            prev =present;
+            present =next;
+
+            if(next!=null){
+                next = next.next;
+            }
+            head =prev;
+        }
+    }
+    public class Node{
+        T value;
+        Node next;
+
+        public Node(T value){
+            this.value= value;
+        }
+        public Node(T value , Node next){
+            this.value = value;
+            this.next = next;
+        }
+    }
+}
