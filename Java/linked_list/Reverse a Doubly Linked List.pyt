@@ -1,13 +1,18 @@
-def reverseDLL(head): 
-    temp = None
-    current = head 
-
-    while current is not None: 
-        temp = current.prev  
-        current.prev = current.next
-        current.next = temp 
-        current = current.prev 
-
-    if temp is not None: 
-        head = temp.prev
-    return head
+public static Node reverseDLL(Node  head)
+{
+    //Your code here
+    
+    if(head == null || head.next == null)
+    return head;
+    
+    Node curr = head, prev = null;
+    
+    while(curr != null){
+        prev = curr.prev;
+        curr.prev = curr.next;
+        curr.next = prev;
+        
+        curr = curr.prev;
+    }
+    return prev.prev;
+}
