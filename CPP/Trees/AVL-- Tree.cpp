@@ -13,6 +13,8 @@ struct Node
 };
 
 */
+#include <iostream>
+using namespace std;
 void inorder(vector<int>&v,Node*root,int data){
     if(root){
         inorder(v,root->left,data);
