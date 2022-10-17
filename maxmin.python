@@ -1,0 +1,15 @@
+# python code for maximum and minimum of an array...
+# import numpy library
+import numpy
+
+sa = numpy.array([10, 15, 40, 8, 25, 7])
+
+# finding the maximum and
+# minimum element in the array
+maximum_element = numpy.max(sa)
+minimum_element = numpy.min(sa)
+
+print('maximum element is: ',
+	maximum_element)
+print('minimum element is: ',
+	minimum_element)
