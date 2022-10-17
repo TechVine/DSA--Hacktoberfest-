@@ -1,0 +1,34 @@
+# Python code for binary search...
+
+def binary_search(as, a, low, high):
+
+    if high >= low:
+
+        mid = low + (high - low)//2
+      
+        if as[mid] == a:
+            return mid
+
+        # Search the left half
+        elif as[mid] > a:
+            return binary_search(as, a, low, mid-1)
+
+        # Search the right half
+        else:
+            return binary_search(as, a, mid + 1, high)
+
+    else:
+        return -1
+
+# printing array and element to be found
+as = [1,3,4,7,8,9,11,13,17,19]
+print("The array given is: ", as)
+a = 13
+print("The element to be found is: ", a)
+
+index = binary_search(as, a, 0, len(as)-1)
+
+if index != -1:
+    print("Element is present at index " + str(index))
+else:
+    print("Not found")
