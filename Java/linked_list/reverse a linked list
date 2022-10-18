@@ -33,9 +33,16 @@ class LinkedList {
     // prints content of double linked list
     void printList(Node node)
     {
+        if(node==null)
+        {
+            System.out.println("Double linked is empty");
+        }
+        else
+        {
         while (node != null) {
             System.out.print(node.data + " ");
             node = node.next;
+        }
         }
     }
  
