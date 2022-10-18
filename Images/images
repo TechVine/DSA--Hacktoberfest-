@@ -1,0 +1,27 @@
+<img src="path or URL" alt="alternate text or image replacement text.">
+report this ad
+A web page can appear better with images. So in this chapter, you will learn how to display images on a web page and customize it.
+
+Table of Contents
+HTML IMG Tag
+SRC attribute of the IMG Tag
+alt Attribute
+border Attribute
+hspace Attribute
+The vspace Attribute
+Height and Width
+We can use the <img> tag to insert pictures into our web page. The <img> tag is an empty tag, meaning it has no ending tag (i.e., no </img>) associated with it. The syntax of using <img> tag is:
+
+<img src="path or URL" alt="alternate text or image replacement text.">
+This attribute helps specify the image's source, which instructs your web browser from which location it must fetch the particular picture (in other words, specify the path). SRC attribute takes path or URL as its value in quotes.
+
+The source's image may exist locally on your computer (need a path to specify) or may reside somewhere in the webserver (need URL to specify). For images in your local PC, whether you have to set the entire path or bring that particular image's copy in a specific folder in which your .html file (in which you want to add image) is also residing.
+
+For image path residing over the internet in some other webpage, you have to use URLs like this:
+
+<img src="http://example.com/wallpaper.jpg" alt="Wallpaper">
+
+
+This attribute of Image Tag or <img> tag allows you to define an alternative text in case your browser becomes unsuccessful in loading the image. There may be situations when your browser might not be able to display that particular image either because of a slow connection server error or any other reason. Moreover, search engines take up those alternate texts given to images and help find articles or content related to that text.
+
+<img src="ganesh.jpg" alt="Lalbaugcha Raja">
