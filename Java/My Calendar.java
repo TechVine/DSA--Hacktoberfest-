@@ -1,8 +1,8 @@
 class MyCalendarThree {
-    TreeMap<Integer,Integer>mp = new TreeMap<>();
+    TreeMap<Integer,Integer>mp;
      int maxCount = 0;
      public MyCalendarThree() {
-         
+         mp = new TreeMap<>();
      }
      
      public int book(int start, int end) {
