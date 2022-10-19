@@ -1,0 +1,38 @@
+# Iterative Binary Search Function method Python Implementation  
+
+def binary_search(li1, n):  
+    low = 0  
+    high = len(li1) - 1  
+    mid = 0  
+  
+    while low <= high:  
+       
+        mid = (high + low) 
+  
+        
+        if li1[mid] < n:  
+            low = mid + 1  
+  
+
+        elif li1[mid] > n:  
+            high = mid - 1  
+  
+        # If n is smaller, compared to the left of mid  
+        else:  
+            return mid  
+  
+        
+    return -1  
+  
+  
+  
+li1= [19, 24, 32, 21, 45, 50, 60]  
+n = 45  
+  
+# Function call   
+result = binary_search(li1, n)  
+  
+if result != -1:  
+    print("Element is present at index", str(result))  
+else:  
+    print("Element is not present in list1")  
