@@ -1,0 +1,46 @@
+//RECURSIVE METHOD FOR MERGE SORT
+#include<bits/stdc++.h>
+using namespace std;
+
+void merge(int arr[],int l,int mid,int h){
+    int i=l,j=mid+1,k=l;
+    int B[h+1];
+
+    while(i<=mid && j<=h){
+        if(arr[i]<arr[j])
+            B[k++]=arr[i++];
+        else   
+            B[k++]=arr[j++];
+    }
+    //for remianing elements when the arrays are not of same size
+    for(;i<=mid;i++){
+        B[k++]=arr[i];
+    }
+    for(;j<=h;j++){
+        B[k++]=arr[j];
+    }
+    //putting back the elements
+    for(int a =l;a<=h;a++){
+        arr[a]=B[a];
+    }
+}
+
+void mergeSort(int arr[],int l,int h){
+    if(l<h){
+        int mid=(l+h)/2;
+        mergeSort(arr,l,mid);
+        mergeSort(arr,mid+1,h);
+        merge(arr,0,mid,h);
+    }
+}
+
+int main()
+{
+    int arr[] = {2,5,8,12,3,6,7,10};
+    int n = 8, l=0 ,h=n-1,mid=(l+h)/2;
+    mergeSort(arr,l,h);
+    for(int i=0;i<n;i++){
+        cout<<arr[i]<<" ";
+    }
+    return 0;
+}
