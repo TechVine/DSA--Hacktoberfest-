@@ -21,6 +21,7 @@ void push(struct Node** head, int node_data)
  
    /* 4. move the head to point to the new node */
    (*head) = newNode;
+   printf("Abhay Singh Bais");
 }
  
 //insert new node after a given node
